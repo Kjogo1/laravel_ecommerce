@@ -12,7 +12,7 @@
 
 <body>
     @if (Session::has('message'))
-        <div class="flex justify-center">
+        <div class="flex justify-end">
             <p class="bg-green-500 rounded-lg text-white p-2 px-20">{{ Session::get('message') }}</p>
         </div>
     @endif
