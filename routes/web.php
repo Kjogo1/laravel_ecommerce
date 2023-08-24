@@ -22,12 +22,16 @@ Route::get('/adminLogout', [AdminAuthController::class, 'adminLogout'])->name('a
 Route::get('/adminLogin', [AdminAuthViewController::class, 'adminLogin'])->name('login');
 Route::get('/adminRegister', [AdminAuthViewController::class, 'adminRegister'])->name('register');
 
-Route::middleware(['auth', 'api'])->group(function () {
-    Route::get('admin/index', function () {
-        return view('admin.dashboard.index');
-    })->name('admin.index');
+Route::prefix('admin')->middleware(['auth', 'api', 'is_admin'])->group(function () {
+    Route::get('/', [AdminAuthViewController::class, 'admin'])->name('admin.index');
+
+    Route::prefix('product')->group(function() {
+        Route::get('/', function() {
+            return view('admin.dashboard.products.index');
+        })->name('admin.product.index');
+    });
 });
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');

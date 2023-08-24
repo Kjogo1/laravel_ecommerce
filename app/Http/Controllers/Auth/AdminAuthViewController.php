@@ -9,11 +9,18 @@ class AdminAuthViewController extends Controller
 {
     //
 
-    public function adminLogin() {
+    public function adminLogin()
+    {
         return view('admin.auth.login');
     }
 
-    public function adminRegister(){
+    public function adminRegister()
+    {
         return view('admin.auth.register');
+    }
+
+    public function admin()
+    {
+        return view('admin.dashboard.index');
     }
 }
