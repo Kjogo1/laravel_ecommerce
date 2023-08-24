@@ -12,7 +12,9 @@
 
 <body>
     @if (Session::has('message'))
-        <p class="bg-green-500 rounded-lg text-white p-2">{{ Session::get('message') }}</p>
+        <div class="flex justify-center">
+            <p class="bg-green-500 rounded-lg text-white p-2 px-20">{{ Session::get('message') }}</p>
+        </div>
     @endif
     @yield('content')
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
