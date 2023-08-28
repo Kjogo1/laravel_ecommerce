@@ -865,15 +865,16 @@
     </nav>
 
     <div class="flex justify-center mt-32">
-        <h2 class="text-3xl">
-            Welcome To Our Admin Page
-        </h2>
+            <h2 class="text-3xl">
+                Welcome To Our Admin Page
+            </h2>
+    </div>
+    <div class="flex justify-center">
         @auth
-            <a href="{{ route('admin.index') }}">
-                Go to Admin Page
+            <a href="{{ route('admin.index') }}" class="bg-blue-500 rounded-md p-2 text-white">
+                Click to go to Admin Page
             </a>
-        @endauth
-
+            @endauth
     </div>
     {{-- <li>
             <a href="{{route('welcome')}}" class="{{request()->routeIs('welcome') ? 'bg-blue-500': ''}} p-5">

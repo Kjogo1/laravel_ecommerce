@@ -159,9 +159,9 @@
                             <td class="px-6 py-4 flex flex-row items-center">
                                 <a href="{{route('admin.product.edit', $product->id)}}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">Edit</a>
-                                <a href="{{route('admin.product.show', $product->id)}}"
+                                <a href="{{route('admin.product.archiveShow', $product->id)}}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">Show</a>
-                                    <form action="{{route('admin.product.destroy', $product->id)}}" method="POST">
+                                    <form action="{{route('admin.product.forceDelete', $product->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button
