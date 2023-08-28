@@ -166,7 +166,7 @@
                                         @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="font-medium text-white bg-blue-500 rounded-md p-2 dark:text-blue-500 hover:underline mr-1">Delete</button>
+                                            class="font-medium text-white bg-red-500 rounded-md p-2 dark:text-blue-500 hover:bg-red-600 mr-1">Delete</button>
                                     </form>
                             </td>
                         </tr>

@@ -129,8 +129,18 @@ class ProductRepository implements ProductRepositoryInterface
             if($image) {
                 Storage::delete('public/products/' . $image);
             }
-            $delete = Product::onlyTrashed()->where('id', $productId)->forceDelete();
+            $delete = Product::where('id', $productId)->forceDelete();
         }
         return $delete;
+    }
+
+    public function restoreProduct($productId) {
+        $check = $this->archiveShowProduct($productId);
+
+        if($check) {
+            $restore = Product::where('id', $productId)->restore();
+        }
+
+        return $restore;
     }
 }

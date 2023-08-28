@@ -32,6 +32,7 @@ Route::prefix('admin')->middleware(['auth', 'api', 'is_admin'])->group(function 
     ], function() {
         Route::get('/product/archive', [ProductController::class, 'archive'])->name('product.archive');
         Route::get('/product/archive/{product}', [ProductController::class, 'archiveShow'])->name('product.archiveShow');
+        Route::put('/product/restore/{product}', [ProductController::class, 'restore'])->name('product.restore');
         Route::delete('/product/forceDelete/{product}', [ProductController::class, 'forceDelete'])->name('product.forceDelete');
 
         Route::resource('/product', ProductController::class);

@@ -12,4 +12,5 @@ interface ProductRepositoryInterface {
     public function archive();
     public function archiveShowProduct($productId);
     public function forceDeleteProduct($productId);
+    public function restoreProduct($productId);
 }

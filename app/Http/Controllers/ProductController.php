@@ -101,7 +101,7 @@ class ProductController extends Controller
         if($data) {
             return redirect()->route('admin.product.index')->with('message', 'Successfully deleted Products.');
         } else {
-            return redirect()->route('admin.product.index')->with('message', 'Data is not found.');
+            return redirect()->route('admin.product.index')->with('message', 'Delete Fail.');
         }
     }
 
@@ -121,7 +121,16 @@ class ProductController extends Controller
         if($data) {
             return redirect()->route('admin.product.archive')->with('message', 'Successfully deleted Products.');
         } else {
-            return redirect()->route('admin.product.archive')->with('message', 'Data is not found.');
+            return redirect()->route('admin.product.archive')->with('message', 'Delete Fail.');
+        }
+    }
+
+    public function restore($productId) {
+        $data = $this->productRepository->restoreProduct($productId);
+        if($data) {
+            return redirect()->route('admin.product.archive')->with('message', 'Successfully restored Products.');
+        } else {
+            return redirect()->route('admin.product.archive')->with('message', 'Delete Fail.');
         }
     }
 }

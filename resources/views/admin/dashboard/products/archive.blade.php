@@ -157,8 +157,13 @@
                                 {{$product->discount->name}}
                             </td>
                             <td class="px-6 py-4 flex flex-row items-center">
-                                <a href="{{route('admin.product.edit', $product->id)}}"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">Edit</a>
+                                <form action="{{route('admin.product.restore', $product->id)}}" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <button
+                                        type="submit"
+                                        class="font-medium text-white bg-blue-500 rounded-md p-2 dark:text-blue-500 hover:bg-blue-600 mr-1">Restore</button>
+                                </form>
                                 <a href="{{route('admin.product.archiveShow', $product->id)}}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">Show</a>
                                     <form action="{{route('admin.product.forceDelete', $product->id)}}" method="POST">
@@ -166,7 +171,7 @@
                                         @method('DELETE')
                                         <button
                                             type="submit"
-                                            class="font-medium text-white bg-blue-500 rounded-md p-2 dark:text-blue-500 hover:underline mr-1">Delete</button>
+                                            class="font-medium text-white bg-red-500 rounded-md p-2 dark:text-blue-500 hover:bg-red-600 mr-1">Delete</button>
                                     </form>
                             </td>
                         </tr>
