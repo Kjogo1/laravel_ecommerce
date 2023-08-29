@@ -7,7 +7,6 @@ use App\Models\Discount;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Mockery\Undefined;
 
 class ProductRepository implements ProductRepositoryInterface
 {
@@ -21,7 +20,10 @@ class ProductRepository implements ProductRepositoryInterface
     }
     public function getAllProducts()
     {
-        return Product::orderBy('created_at', 'DESC')->get();
+        // return Product::orderBy('created_at', 'DESC')->get();
+        return Product::orderBy('created_at', 'DESC')->paginate(2);
+
+        // return dd(Product::orderBy('created_at', 'DESC')->paginate(2));
     }
 
     public function getProductsById($productId)

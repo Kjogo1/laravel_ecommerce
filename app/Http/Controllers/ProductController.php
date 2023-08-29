@@ -25,7 +25,6 @@ class ProductController extends Controller
         //
         $products = $this->productRepository->getAllProducts();
         return view('admin.dashboard.products.index', compact('products'));
-
     }
 
     /**
